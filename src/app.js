@@ -1,9 +1,10 @@
 import express from "express";
+import cors from "cors";
 
 const app = express();
 
 app.use(express.json());
-
+app.use(cors());
 const livros = [
   {id: 1, "titulo": "Senhor dos Aneis"},
   {id: 2, "titulo": "O Hobbit"}
