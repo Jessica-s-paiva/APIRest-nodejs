@@ -1,7 +1,8 @@
 import express from "express";
 import cors from "cors";
 import db from "./Config/dbConnect.js";
-import produtos from "./Model/Produto.js";
+import produtos from "./Models/Produto.js";
+import routes from  './Routes/index.js'
 
 db.on("error", console.log.bind(console, 'Erro de conexão'))
 db.once("open", () => {
@@ -13,25 +14,13 @@ const app = express();
 app.use(express.json());
 app.use(cors());
 
-app.get('/', (req, res) => {
-  res.status(200).send('Curso de Node');
-}) 
-
-app.get('/produtos', (req, res) => {
-  produtos.find((err, produtos) => { 
-    res.status(200).json(produtos)
-  });
-})
+routes(app);
 
 app.get('/produtos/:id', (req, res) => {
     let index = buscaLivro(req.params.id);
     res.json(livros[index]);
   })
 
-app.post('/produtos', (req, res) => {
-    livros.push(req.body);
-    res.status(201).send('Livro foi cadastrado com sucesso');
-})
 
 app.put('/produtos/:id', (req, res) => {
     let index = buscaLivro(req.params.id);
