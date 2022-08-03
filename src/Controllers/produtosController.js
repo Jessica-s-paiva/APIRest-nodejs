@@ -9,6 +9,18 @@ class ProdutoController{
 
     }
 
+    static getProdutosId = (req, res) => {
+        const nome = req.params.name;
+        produtos.findById(id, (err, produtos) => { 
+            if (err) {  
+                res.status(400).send({message: `${err.message} - falha ao localizar produto`})
+            } else {
+                res.status(200).send(produtos)
+            }
+    });
+
+    }
+
     static addProduto = (req, res) => {
         const produto =  new produtos(req.body);
 

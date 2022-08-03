@@ -8,7 +8,8 @@ const produtoSchema = new mongoose.Schema(
         peso: { type: String, required: true },
         tamanho: { type: String, required: true },
         valor: { type: String, required: true },
-        descricao: { type: String, required: true }
+        descricao: { type: String, required: true},
+        imagem: { type: String}
     }
 );
 

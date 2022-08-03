@@ -16,17 +16,17 @@ app.use(cors());
 
 routes(app);
 
-app.get('/produtos/:id', (req, res) => {
-    let index = buscaLivro(req.params.id);
-    res.json(livros[index]);
-  })
+// app.get('/produtos/:id', (req, res) => {
+//     let index = buscaLivro(req.params.id);
+//     res.json(livros[index]);
+//   })
 
 
-app.put('/produtos/:id', (req, res) => {
-    let index = buscaLivro(req.params.id);
-    livros[index].titulo = req.body.titulo;
-    res.json(livros);
-})
+// app.put('/produtos/:id', (req, res) => {
+//     let index = buscaLivro(req.params.id);
+//     livros[index].titulo = req.body.titulo;
+//     res.json(livros);
+// })
 
 app.delete('/produtos/:id', (req, res) => {
     let {id} = req.params;
